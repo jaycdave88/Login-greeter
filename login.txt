@@ -1,0 +1,18 @@
+set timeStr to time string of (current date)
+set Pos to offset of ":" in timeStr
+set theHour to characters 1 thru (Pos - 1) of timeStr as string
+
+--Get "AM or PM"
+set Pos to offset of " " in timeStr
+set theSfx to characters (Pos + 1) through end of timeStr as string
+
+
+if (theHour > "5") and (theHour ≥ "11") and (theSfx is equal to "PM") then
+  say "Good Evening [ENTER_YOUR_NAME], What shall we work on?"
+else if (theHour ≥ "11") and (theSfx is equal to "AM") then
+  say "Good Morning [ENTER_YOUR_NAME], Shall we get started?"
+else
+  say "Good Afternoon [ENTER_YOUR_NAME], Lets get to work!"
+end if
+
+
